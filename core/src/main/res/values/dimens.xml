@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="side_btn_circle_1">30dp</dimen>
+    <dimen name="float_bar_btn_circle_2">18dp</dimen>
+    <dimen name="side_c_btn_size">32dp</dimen>
+    <dimen name="side_c_btn_margin">3dp</dimen>
+    <dimen name="side_btn_margin">2dp</dimen>
+    <dimen name="float_bar_c_margin_right">5dp</dimen>
+</resources>

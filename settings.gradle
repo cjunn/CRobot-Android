@@ -1,0 +1,36 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        google()
+        mavenCentral()
+    }
+}
+
+buildCache{
+    local{
+        directory = new File(rootDir.getParentFile(), 'build-cache')
+        removeUnusedEntriesAfterDays = 30
+    }
+}
+
+rootProject.name = "CRobot"
+include ':app'
+include ':debug'
+include ':engine_runtime'
+include ':engine_clua'
+include ':engine_cjs'
+include ':core'
+include ':lib_chineseocr_lite'
+include ':engine_boostrap'
+include ':lib_yolov8'

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center">
+        <shape android:shape="oval">
+            <stroke
+                android:width="1dp"
+                android:color="@color/float_btn_color1"></stroke>
+            <size
+                android:width="@dimen/side_btn_circle_1"
+                android:height="@dimen/side_btn_circle_1" />
+            <solid android:color="@color/float_btn_color2"></solid>
+        </shape>
+    </item>
+    <item
+        android:width="@dimen/float_bar_btn_circle_2"
+        android:height="@dimen/float_bar_btn_circle_2"
+        android:drawable="@drawable/float_bar_setting"
+        android:gravity="center"
+        android:left="0dp"></item>
+
+
+</layer-list>

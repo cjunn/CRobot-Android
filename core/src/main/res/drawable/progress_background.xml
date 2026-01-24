@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="3dp" /> <!-- 调整这里的半径值来改变圆角效果 -->
+    <solid android:color="#EFEFEF" /> <!-- 替换为你想要的背景颜色 -->
+</shape>

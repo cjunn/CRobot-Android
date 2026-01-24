@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="top_bar_height">35dp</dimen>
+    <dimen name="top_bar_font_size">14sp</dimen>
+    <dimen name="start_btn_font_size">16sp</dimen>
+    <dimen name="start_btn_area_height">50dp</dimen>
+    <dimen name="start_btn_margin">6dp</dimen>
+
+</resources>

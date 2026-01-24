@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="@dimen/side_c_btn_size"
+        android:height="@dimen/side_c_btn_size"
+        android:drawable="@drawable/float_bar_c_active"></item>
+</layer-list>

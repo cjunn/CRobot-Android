@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/side_cbtn"
+        android:layout_width="@dimen/side_c_btn_size"
+        android:layout_height="@dimen/side_c_btn_size"
+        android:background="@drawable/float_bar_c_layer"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:stateListAnimator="@null"
+        android:theme="@null"></Button>
+</LinearLayout>

@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace project.hasProperty('myPackPath') ? myPackPath : 'com.crobot.app'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId project.hasProperty('myPackPath') ? myPackPath : 'com.crobot.app'
+        minSdk 24
+        targetSdk 33
+        versionCode project.hasProperty('myVer') ? myVer.toInteger() : 1
+        versionName project.hasProperty('myVer') ? myVer : '1.0'
+        resConfigs "zh"
+    }
+    signingConfigs {
+        release {
+            keyAlias project.hasProperty('myKeyAlias') ? myKeyAlias : 'key0'
+            keyPassword project.hasProperty('myKeyPassword') ? myKeyPassword : '123456'
+            storeFile file(project.hasProperty('myStoreFile') ? myStoreFile : '../test.jks')
+            storePassword project.hasProperty('myStorePassword') ? myStorePassword : '123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard-android-optimize.txt', 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(path: ':core')
+    implementation project(path: ':engine_clua')
+    implementation project(path: ':engine_runtime')
+
+//    implementation files('../core/libs/core-release.aar')
+//    implementation files('../engine_clua/libs/engine_clua-release.aar')
+//    implementation files('../engine_runtime/libs/engine_runtime-release.aar')
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+}

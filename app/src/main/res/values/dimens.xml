@@ -1,0 +1,16 @@
+<resources>
+    <dimen name="top_bar_height">35dp</dimen>
+    <dimen name="top_bar_font_size">14sp</dimen>
+    <dimen name="start_btn_font_size">16sp</dimen>
+    <dimen name="start_btn_margin">6dp</dimen>
+    <dimen name="start_btn_area_height">50dp</dimen>
+    <dimen name="setting_wrap_width">40dp</dimen>
+    <dimen name="setting_wrap_height">32dp</dimen>
+    <dimen name="setting_margin_right">10dp</dimen>
+    <dimen name="setting_width">20dp</dimen>
+    <dimen name="setting_height">20dp</dimen>
+    <dimen name="setting_row_font_size">18sp</dimen>
+    <dimen name="setting_row_height">50dp</dimen>
+    <dimen name="setting_row_padding">15dp</dimen>
+    <dimen name="setting_switch_width">50dp</dimen>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme">#FF3C7AC5</color>
+    <color name="main">#FF282828</color>
+    <color name="back_color">#FFFAFAFA</color>
+    <color name="gray">#FF777777</color>
+    <color name="gray2">#FFC0C0C0</color>
+    <color name="gray3">#FF555555</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text_color">#FF404040</color>
+    <color name="toast_bg">#BB000000</color>
+    <color name="dark_black_color">#FF282828</color>
+    <color name="black">#FF000000</color>
+    <color name="progress">#FF5C9AE5</color>
+    <color name="back_line">#EEFAFAFA</color>
+    <color name="btn_bg">#25101010</color>
+
+
+    <color name="float_btn_color1">#33FFFFFF</color>
+    <color name="float_btn_color2">#55000000</color>
+    <color name="float_btn_color3">#EFFFFFFF</color>
+    <color name="float_btn_color4">#DDFFFFFF</color>
+    <color name="setting_board">#CCCCCCCC</color>
+    <color name="dialog_border">#FFCCCCCC</color>
+    <color name="dialog_button_normal">#FFE0E0E0</color>
+    <color name="dialog_button_pressed">#FFCCCCCC</color>
+    <color name="dialog_overlay">#80000000</color>
+</resources>

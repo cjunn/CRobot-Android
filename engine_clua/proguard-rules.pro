@@ -1,0 +1,5 @@
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-verbose
+-dontwarn android.support.**
+-dontshrink

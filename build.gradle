@@ -1,0 +1,15 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.4.1' apply false
+    id 'com.android.library' version '7.4.1' apply false
+}
+
+
+//AGP 版本	默认绑定的 NDK 版本	备注
+//7.0.x	21.4.7075529	最低支持 API 19
+//7.4.x	25.1.8937393	最低支持 API 21
+//8.0.x	25.2.9519653	适配 Android 13
+//8.2.x	26.1.10909125	适配 Android 14
+//8.3.x	27.0.11718014	小版本迭代
+//8.4.x	28.0.12456685	过渡版本
+//8.5.x	29.0.14206865	你之前问的这个 NDK 版本

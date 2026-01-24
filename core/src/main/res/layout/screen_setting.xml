@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="0.95"
+    android:background="@drawable/screen_setting_background"
+    android:clickable="true"
+    android:clipChildren="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp">
+
+        <RelativeLayout
+            android:id="@+id/screen_setting_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/screen_setting_1"
+            android:elevation="5dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="功能配置"
+                android:textAlignment="center"
+                android:textColor="@color/main"
+                android:textSize="15sp"></TextView>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/screen_setting_bottom"
+            android:layout_below="@id/screen_setting_top"
+            android:background="@color/white"
+            android:paddingTop="0dp">
+
+            <FrameLayout
+                android:id="@+id/screen_setting_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="13dp"
+                android:paddingTop="1dp"
+                android:paddingRight="13dp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/screen_setting_top"
+            android:background="@color/setting_board"
+            android:text="功能配置" />
+
+        <RelativeLayout
+            android:id="@+id/screen_setting_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/screen_setting_2"
+            android:elevation="5dp"
+            android:outlineAmbientShadowColor="@color/black">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentTop="true"
+                android:background="@color/setting_board" />
+
+            <TextView
+                android:id="@+id/screen_setting_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="16px"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/screen_setting_btn"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="配置保存"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"></TextView>
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/screen_setting_update"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:layout_marginStart="-3dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/back_line"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text=" "
+                android:textColor="@color/white"
+                android:textSize="8sp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/screen_setting_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
+                android:text="更新\n脚本"
+                android:textColor="@color/white"
+                android:textSize="7sp"
+                android:textStyle="bold"></TextView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

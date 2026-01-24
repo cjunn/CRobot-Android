@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/main_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_bar_height"
+            android:layout_alignParentTop="true"
+            android:background="@color/theme"
+            android:elevation="2dp"
+            android:outlineAmbientShadowColor="@color/black">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|center_vertical"
+                android:text="@string/script_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/top_bar_font_size"></TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_setting_area"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/main_frame_bottom"
+            android:layout_below="@id/main_top"
+            android:paddingTop="0dp">
+
+            <LinearLayout
+                android:id="@+id/main_frame_bar"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
+                android:textSize="14sp" />
+
+            <FrameLayout
+                android:id="@+id/main_frame_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/main_frame_bar"
+                android:paddingLeft="13dp"
+                android:paddingTop="1dp"
+                android:paddingRight="13dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_frame_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/start_btn_area_height"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/func_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/start_btn_margin"
+                android:background="@drawable/shape_start_btn"
+                android:stateListAnimator="@null"
+                android:text="@string/start_btn_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/start_btn_font_size"></Button>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

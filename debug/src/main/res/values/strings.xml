@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CRobot-Debug</string>
+    <string name="script_debug">CEngine调试器</string>
+    <string name="start_btn_name">功能启动</string>
+</resources>

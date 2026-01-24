@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.crobot.debug'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.crobot.debug"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard-android-optimize.txt', 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    //implementation project(path: ':core')
+//    implementation files('../core/libs/core-release.aar')
+//    implementation files('../engine_clua/libs/engine_clua-release.aar')
+//    implementation files('../engine_runtime/libs/engine_runtime-release.aar')
+
+    implementation project(path: ':core')
+    //implementation project(path: ':engine_clua')
+    implementation project(path: ':engine_cjs')
+    implementation project(path: ':engine_runtime')
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+}

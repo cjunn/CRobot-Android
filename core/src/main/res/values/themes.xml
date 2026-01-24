@@ -1,0 +1,37 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.CRobot" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand ext.color. -->
+        <item name="buttonTint">@color/main</item>
+        <item name="android:textColor">@color/main</item>
+        <item name="android:textSize">15dp</item>
+
+        <item name="android:textColorPrimary">@color/main</item>
+        <!-- 设置次要文本颜色 -->
+        <item name="android:textColorSecondary">@color/main</item>
+        <!-- 或者直接设置 textColor -->
+
+        <item name="colorPrimary">@color/theme</item>
+        <item name="colorPrimaryVariant">@color/theme</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand ext.color. -->
+        <item name="colorSecondary">@color/theme</item>
+        <item name="colorSecondaryVariant">@color/theme</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar ext.color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+
+        <item name="colorControlNormal">@color/theme</item>
+        <item name="colorControlActivated">@color/theme</item>
+
+        <!--        <item name="tabPadding">0dp</item>-->
+        <!--        <item name="tabIndicatorColor">@color/white</item>-->
+        <!--        <item name="tabIndicatorHeight">1dp</item>-->
+        <!--        <item name="tabPaddingStart">1dp</item>-->
+        <!--        <item name="tabPaddingEnd">1dp</item>-->
+        <!--        <item name="tabBackground">@color/white</item>-->
+        <!--        <item name="tabTextAppearance">@style/Theme.CRobot</item>-->
+        <!--        <item name="tabSelectedTextColor">@color/white</item>-->
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

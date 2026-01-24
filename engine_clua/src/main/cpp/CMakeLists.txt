@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.22.1)
+project("engine")
+add_definitions(-DLUA_DL_DLOPEN -DLUA_COMPAT_5_3 -DLUA_USE_LINUX)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../libs/${ANDROID_ABI})
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lua)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/clua)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/core)
+add_library(engine SHARED main.cpp)
+find_library(log-lib log)
+target_link_libraries(engine core clua ${log-lib} lua)
