@@ -20,7 +20,11 @@ public class FileOperationFactoryImpl implements FileOperationFactory {
     }
 
     public FileOperation getModule(String root) {
-        return new FileOperationImpl(new File(context.getDataDir(), root).getAbsolutePath());
+        File dir = new File(context.getDataDir(), root);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+        return new FileOperationImpl(dir.getAbsolutePath());
     }
 
 

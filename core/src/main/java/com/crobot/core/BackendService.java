@@ -26,6 +26,7 @@ import com.crobot.core.drive.HttpInitiator;
 import com.crobot.core.drive.LibInstallerInitiator;
 import com.crobot.core.drive.OutputInitiator;
 import com.crobot.core.drive.ProgressInitiator;
+import com.crobot.core.drive.SQLiteInitiator;
 import com.crobot.core.drive.SelectorInitiator;
 import com.crobot.core.drive.TestInitiator;
 import com.crobot.core.drive.TextInitiator;
@@ -51,6 +52,7 @@ import com.crobot.core.infra.tool.GalleryImpl;
 import com.crobot.core.infra.tool.Output;
 import com.crobot.core.infra.tool.OutputImpl;
 import com.crobot.core.infra.tool.ProgressLazy;
+import com.crobot.core.infra.tool.SQLiteFactoryImpl;
 import com.crobot.core.infra.tool.ScreenCapture;
 import com.crobot.core.infra.tool.ScreenCaptureLazy;
 import com.crobot.core.infra.tool.ScreenMetrics;
@@ -168,6 +170,7 @@ public abstract class BackendService extends Service implements RuntimeEvent, Si
                 .addInitiator(new FileSystemInitiator(this.fileSystemFactory))
                 .addInitiator(new TestInitiator())
                 .addInitiator(new LibInstallerInitiator())
+                .addInitiator(new SQLiteInitiator(new SQLiteFactoryImpl(this)))
                 .addInitiator(new ProgressInitiator(new ProgressLazy(this)))
                 .builder();
         this.uiContext.bindViewGroup(() -> this.sideBar.getSettingBody());
