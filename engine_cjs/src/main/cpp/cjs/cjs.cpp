@@ -1478,7 +1478,15 @@ jobject Cjs::execute(jstring _module, jstring _func) {
 }
 
 jobject Cjs::executeCmdline(jstring cmdline, jobjectArray args) {
-    return nullptr;
+    JString cmd = JString(env, cmdline);
+    JSValue ret = ExecuteCmdline(ctx,cmd.str());
+    if(JS_IsException(ret)){
+        JSValue err = JS_GetException(ctx);
+        ThrowJvmError(env,ctx, err);
+        JS_FreeValue(ctx,err);
+        return nullptr;
+    }
+    return Js2JRet(ctx,env).newAny(ret);
 }
 
 static JSValue BuildExecuteFunction(JSContext *ctx, JNIEnv *env,const char* fileName, jbyteArray _code) {

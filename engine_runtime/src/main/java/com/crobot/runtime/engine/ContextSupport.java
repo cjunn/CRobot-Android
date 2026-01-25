@@ -2,16 +2,12 @@ package com.crobot.runtime.engine;
 
 import com.crobot.runtime.engine.apt.FuncApt;
 import com.crobot.runtime.engine.apt.ObjApt;
-import com.crobot.utils.CLog;
 
 import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Supplier;
 
@@ -95,7 +91,7 @@ public class ContextSupport implements ContextProxy {
                 Result result = context.start(cmdline, args);
                 future.complete(result);
                 return result;
-            } finally {
+            }finally {
                 closingEvents.forEach(event -> event.execute());
                 this.interrupt();
                 context.close();

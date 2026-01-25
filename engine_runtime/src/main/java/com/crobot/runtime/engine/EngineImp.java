@@ -2,8 +2,6 @@ package com.crobot.runtime.engine;
 
 import androidx.annotation.Nullable;
 
-import com.crobot.utils.CLog;
-
 import java.lang.ref.WeakReference;
 
 public class EngineImp implements Engine {
@@ -58,11 +56,11 @@ public class EngineImp implements Engine {
             return apply;
         } catch (Exception e) {
             runtimeEvent.errorEvent(e);
+            return Result.error(e.getMessage());
         } finally {
             this.close();
             runtimeEvent.stopEvent();
         }
-        return new Result(null);
     }
 
     @Override
