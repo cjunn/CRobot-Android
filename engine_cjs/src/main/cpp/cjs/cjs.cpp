@@ -865,7 +865,7 @@ static JSValue Execute_Await(JSContext *ctx, JSValue obj) {
 }
 
 static JSValue ExecuteCmdline(JSContext *ctx, const char *cmdline) {
-    JSValue val = JS_Eval(ctx, cmdline, strlen(cmdline), "<cmdline>", JS_EVAL_TYPE_MODULE);
+    JSValue val = JS_Eval(ctx, cmdline, strlen(cmdline), "<cmdline>", JS_EVAL_TYPE_GLOBAL);
     if (JS_IsException(val)) {
         return val;
     }
