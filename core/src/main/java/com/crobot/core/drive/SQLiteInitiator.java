@@ -9,8 +9,10 @@ import com.crobot.runtime.engine.ContextProxy;
 import com.crobot.runtime.engine.Initiator;
 import com.crobot.runtime.engine.JsonBean;
 import com.crobot.runtime.engine.Varargs;
+import com.crobot.runtime.engine.apt.FuncApt;
 import com.crobot.runtime.engine.apt.ObjApt;
 import com.crobot.runtime.engine.apt.anno.Caller;
+import com.crobot.runtime.engine.apt.anno.Execute;
 
 public class SQLiteInitiator implements Initiator {
     private SQLiteFactory sqLiteFactory;
@@ -21,9 +23,9 @@ public class SQLiteInitiator implements Initiator {
 
     @Override
     public void execute(ContextProxy context) {
-        context.setObjApt("SQLite", new ObjApt() {
-            @Caller("open")
-            public SQLiteApt open(String path) {
+        context.setFuncApt("openSQLite", new FuncApt() {
+            @Execute
+            public SQLiteApt execute(String path) {
                 try{
                     return new SQLiteApt(sqLiteFactory.open(path));
                 }catch (Exception e){

@@ -23,6 +23,11 @@ public class UIInitiator implements Initiator {
         public Object getValue(String id) {
             return uiContext.getUIValue(id).get();
         }
+
+        @Caller("setValue")
+        public void setValue(String id, Object value) {
+            uiContext.setUIValue(id, value);
+        }
     }
 
 }

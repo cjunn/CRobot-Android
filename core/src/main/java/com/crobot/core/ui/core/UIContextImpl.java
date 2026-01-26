@@ -24,6 +24,7 @@ public class UIContextImpl implements UIContext {
     private final List<Consumer<UIKeyValue>> valueListen = new ArrayList<>();
     private final Handler main = new Handler(Looper.getMainLooper());
     private final Context context;
+    private final Map<String,UISupport> uiMap = new ConcurrentHashMap<>();
     private final Map<String, UIValue> valueMap = new ConcurrentHashMap<>();
     private Supplier<Map<String, Object>> initSupplier;
 
@@ -49,6 +50,19 @@ public class UIContextImpl implements UIContext {
     @Override
     public UIValue getUIValue(String id) {
         return valueMap.getOrDefault(id, UIValue.EMPTY);
+    }
+
+    @Override
+    public void setUIValue(String id, Object value) {
+        Latch latch = new Latch(1);
+        main.post(()->{
+            UISupport uiSupport = uiMap.get(id);
+            if(uiSupport!=null){
+                uiSupport.setValue(value);
+            }
+            latch.countDown();
+        });
+        latch.await();
     }
 
     @Override
@@ -109,7 +123,12 @@ public class UIContextImpl implements UIContext {
         this.addValueChangeListener(allFlat);
         this.setUIInitValue(allFlat);
         this.initUIInitiator(allFlat);
+        this.initUIMap(allFlat);
         return pairs;
+    }
+
+    private void initUIMap(List<UISupport> allFlat) {
+        uiMap.putAll(allFlat.stream().collect(Collectors.toMap(k -> k.getId(), k -> k, (k1, k2) -> k1)));
     }
 
 
