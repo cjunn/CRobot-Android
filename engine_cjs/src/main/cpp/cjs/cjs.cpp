@@ -306,7 +306,7 @@ static void UpdateImageIfNeed(JSContext *ctx){
 static void CreateImageLib(JSContext *ctx) {
     JSValue C = GetCLib(ctx);
     JSValue Screen = JS_DupValue(ctx, JS_NewObject(ctx));
-    JS_SetPropertyStr(ctx, C, "Screen", Screen);
+    JS_SetPropertyStr(ctx, C, "Findscr", Screen);
     JS_FreeValue(ctx, C);
 
     JSValue func = JS_UNDEFINED;

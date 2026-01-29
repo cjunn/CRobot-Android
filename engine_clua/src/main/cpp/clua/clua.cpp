@@ -170,7 +170,7 @@ static void CreateImageLib(lua_State *L){
             {nullptr, nullptr}
     };
     luaL_newlib(L, methods);
-    SetCLib(L, "Screen");
+    SetCLib(L, "Findscr");
 }
 
 static void GetCLib(lua_State *L, const char *name) {
