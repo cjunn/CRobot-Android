@@ -16,7 +16,7 @@ public class TouchInitiator implements Initiator {
 
     @Override
     public void execute(ContextProxy context) {
-        context.setObjApt("Touch", new ObjApt() {
+        context.setObjApt("Input", new ObjApt() {
             @Caller("tap")
             public void tap(Number x, Number y, Number delay) {
                 screenTouch.tap(x.floatValue(), y.floatValue(), delay.intValue());
