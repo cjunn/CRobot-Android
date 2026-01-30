@@ -877,7 +877,7 @@ static JSValue ExecuteCmdline(JSContext *ctx, const char *cmdline) {
 }
 
 static void ParseStack(Cjs *cjs, const char *stack, std::string &out) {
-    std::regex pattern(R"(\s+(\w+)\s+\((\w+):(\d+):\d+\))");
+    std::regex pattern(R"(\s+(\w+)\s+\(([\w/]+):(\d+):\d+\))");
     std::istringstream ss(stack);
     std::string line;
     while (std::getline(ss, line)) {
