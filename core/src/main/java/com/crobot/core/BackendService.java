@@ -28,6 +28,7 @@ import com.crobot.core.drive.OutputInitiator;
 import com.crobot.core.drive.ProgressInitiator;
 import com.crobot.core.drive.SQLiteInitiator;
 import com.crobot.core.drive.SelectorInitiator;
+import com.crobot.core.drive.SystemInitiator;
 import com.crobot.core.drive.TestInitiator;
 import com.crobot.core.drive.TextInitiator;
 import com.crobot.core.drive.ThreadInitiator;
@@ -172,6 +173,7 @@ public abstract class BackendService extends Service implements RuntimeEvent, Si
                 .addInitiator(new LibInstallerInitiator())
                 .addInitiator(new SQLiteInitiator(new SQLiteFactoryImpl(this)))
                 .addInitiator(new ProgressInitiator(new ProgressLazy(this)))
+                .addInitiator(new SystemInitiator())
                 .builder();
         this.uiContext.bindViewGroup(() -> this.sideBar.getSettingBody());
         this.uiContext.bindUIValueListen(vo -> this.project.setUISetting(vo.getId(), vo.getValue().get()));
