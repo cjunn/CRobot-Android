@@ -748,7 +748,7 @@ static void CreateAptLib(JSContext *ctx){
         JS_FreeValue(ctx, C);
         return isErr ? JS_EXCEPTION : promise;
     };
-    JSValue func = JS_DupValue(ctx, JS_NewCFunction(ctx, wrap, "wrap", 4));
+    JSValue func = JS_DupValue(ctx, JS_NewCFunction(ctx, wrap, "wrap", 1));
     JS_SetPropertyStr(ctx, C, "wrap", func);
     JS_FreeValue(ctx, func);
     JS_FreeValue(ctx, C);
