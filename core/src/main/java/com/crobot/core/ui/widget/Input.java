@@ -14,7 +14,6 @@ import androidx.appcompat.widget.AppCompatEditText;
 import com.crobot.core.resource.My;
 import com.crobot.core.ui.core.Setter;
 import com.crobot.core.ui.core.SimpleUISupport;
-import com.crobot.core.ui.core.UIAttribute;
 import com.crobot.core.ui.core.UIValueSetter;
 import com.crobot.utils.CLog;
 
@@ -46,11 +45,6 @@ public class Input extends SimpleUISupport<Input.MyEditText, String> {
     @Override
     protected void setValue(MyEditText view, String value) {
         view.setText(value);
-    }
-
-    @Override
-    protected void setDefaultValue(MyEditText view, UIAttribute value) {
-        this.setValue(view, value.getString());
     }
 
     @Override

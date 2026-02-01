@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat;
 
 import com.crobot.core.resource.My;
 import com.crobot.core.ui.core.SimpleUISupport;
-import com.crobot.core.ui.core.UIAttribute;
 import com.crobot.core.ui.core.UIValueSetter;
 
 import java.util.Map;
@@ -32,10 +31,6 @@ public class CheckBox extends SimpleUISupport<AppCompatCheckBox,Boolean> {
         view.setChecked(value);
     }
 
-    @Override
-    protected void setDefaultValue(AppCompatCheckBox view, UIAttribute value) {
-        this.setValue(view, value.getBool());
-    }
 
     @Override
     protected void bindViewValueChange(AppCompatCheckBox checkBox, UIValueSetter setter) {

@@ -84,9 +84,14 @@ public class UIContextImpl implements UIContext {
         Map<String, Object> initValMap = initSupplier.get();
         for (UISupport ui : allFlat) {
             Object initVal = initValMap.get(ui.getId());
+            Object setVal = null;
             if (initVal != null) {
                 ui.setValue(initVal);
-                this.valueMap.put(ui.getId(), initVal);
+                setVal = initVal;
+            }
+            setVal = setVal == null ? ui.getValue() : setVal;
+            if (setVal != null) {
+                this.valueMap.put(ui.getId(), setVal);
             }
         }
     }

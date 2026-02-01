@@ -6,7 +6,6 @@ import android.widget.LinearLayout;
 
 import com.crobot.core.ui.core.Setter;
 import com.crobot.core.ui.core.SimpleUISupport;
-import com.crobot.core.ui.core.UIAttribute;
 import com.crobot.core.ui.core.UISupport;
 import com.crobot.core.ui.core.UIValueSetter;
 
@@ -73,11 +72,6 @@ public class RadioGroup extends SimpleUISupport<android.widget.RadioGroup, Strin
         if (radio != null) {
             this.getView().check(radio.getId());
         }
-    }
-
-    @Override
-    protected void setDefaultValue(android.widget.RadioGroup view, UIAttribute value) {
-        this.setValue(view, value.getString());
     }
 
     @Override

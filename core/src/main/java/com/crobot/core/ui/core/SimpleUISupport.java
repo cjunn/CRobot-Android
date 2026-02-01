@@ -6,6 +6,10 @@ import android.graphics.Typeface;
 import android.view.View;
 import android.widget.TextView;
 
+import com.crobot.utils.CLog;
+
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Map;
 
 public abstract class SimpleUISupport<V extends View, E> extends UISupportImpl<V, E> {
@@ -14,8 +18,8 @@ public abstract class SimpleUISupport<V extends View, E> extends UISupportImpl<V
     }
 
     @Setter("default")
-    public void setDefault(UIAttribute attr) {
-        this.setDefaultValue(this.getView(), attr);
+    public void setDefault(String value) {
+        this.setValue(DefaultParse.toValue(this.getClass(), value));
     }
 
     @Setter("text")
@@ -89,12 +93,54 @@ public abstract class SimpleUISupport<V extends View, E> extends UISupportImpl<V
 
     }
 
-    protected void setDefaultValue(V view, UIAttribute value) {
-
-    }
 
     @Override
     protected void bindViewValueChange(V v, UIValueSetter<E> setter) {
 
     }
+
+    public static class DefaultParse {
+        public static <E> E toValue(Class clz, String value) {
+            Type valueType = getValueType(clz);
+            if (Integer.class.equals(valueType)) {
+                return (E) toInteger(value);
+            }
+            if (String.class.equals(valueType)) {
+                return (E) toString(value);
+            }
+            if (Boolean.class.equals(valueType)) {
+                return (E) toBool(value);
+            }
+            return null;
+        }
+
+        public static Integer toInteger(String value) {
+            try {
+                return Integer.parseInt(value);
+            } catch (Exception e) {
+                return 0;
+            }
+        }
+
+        public static String toString(String value) {
+            return value;
+        }
+
+        public static Boolean toBool(String value) {
+            try {
+                return Boolean.parseBoolean(value);
+            } catch (Exception e) {
+                return false;
+            }
+        }
+
+
+        public static Type getValueType(Class clz) {
+            Type genericSuperclass = clz.getGenericSuperclass();
+            ParameterizedType parameterizedType = (ParameterizedType) genericSuperclass;
+            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+            return actualTypeArguments[1];
+        }
+    }
+
 }

@@ -121,9 +121,6 @@ public class UIRegister {
         if (type.equals(char.class) || type.equals(Character.class)) {
             return Character.valueOf(value.charAt(0));
         }
-        if (type.equals(UIAttribute.class)) {
-            return new UIAttribute(value);
-        }
         return null;
     }
 }

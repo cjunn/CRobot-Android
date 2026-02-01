@@ -10,7 +10,6 @@ import androidx.appcompat.widget.AppCompatSpinner;
 
 import com.crobot.core.resource.My;
 import com.crobot.core.ui.core.SimpleUISupport;
-import com.crobot.core.ui.core.UIAttribute;
 import com.crobot.core.ui.core.UISupport;
 import com.crobot.core.ui.core.UIValueSetter;
 
@@ -50,11 +49,6 @@ public class SpinnerList extends SimpleUISupport<AppCompatSpinner, String> {
                 break;
             }
         }
-    }
-
-    @Override
-    protected void setDefaultValue(AppCompatSpinner spinner, UIAttribute value) {
-        this.setValue(spinner, value.getString());
     }
 
     @Override

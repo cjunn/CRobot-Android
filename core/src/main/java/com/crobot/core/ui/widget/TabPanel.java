@@ -11,7 +11,6 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.crobot.core.resource.My;
 import com.crobot.core.ui.core.SimpleUISupport;
-import com.crobot.core.ui.core.UIAttribute;
 import com.crobot.core.ui.core.UISupport;
 import com.crobot.core.ui.core.UIValueSetter;
 import com.google.android.material.tabs.TabLayout;
@@ -62,11 +61,6 @@ public class TabPanel extends SimpleUISupport<LinearLayout, Integer> {
     protected void setValue(LinearLayout view, Integer value) {
         TabLayout.Tab tabAt = this.myTabLayout.getTabAt(value);
         this.myTabLayout.selectTab(tabAt);
-    }
-
-    @Override
-    protected void setDefaultValue(LinearLayout view, UIAttribute value) {
-        this.setValue(view, value.getInt());
     }
 
     @Override

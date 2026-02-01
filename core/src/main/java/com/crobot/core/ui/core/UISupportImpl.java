@@ -71,8 +71,6 @@ public abstract class UISupportImpl<V extends View, E> implements UISupport<V, E
 
     protected abstract void setValue(V view, E value);
 
-    protected abstract void setDefaultValue(V view, UIAttribute value);
-
     protected abstract void bindViewValueChange(V v, UIValueSetter<E> setter);
 
     private void initAttrValue(Map<String, String> attr) {
