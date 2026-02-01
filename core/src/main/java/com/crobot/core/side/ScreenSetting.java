@@ -47,7 +47,7 @@ public class ScreenSetting extends ConstraintLayout {
         this.setOnClickListener((event) -> this.hide());
         this.windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         this.winLayoutParams = new WinLayoutParams();
-        this.winLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+        this.winLayoutParams.flags = WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
         windowManager.addView(this, this.winLayoutParams);
     }
 
@@ -73,7 +73,6 @@ public class ScreenSetting extends ConstraintLayout {
             this.setPadding(padWidth, 25, padWidth, 25);
         }
         this.requestLayout();
-
         this.setVisibility(View.VISIBLE);
         ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(this, "alpha", 0f, 1f);
         alphaAnimator.setDuration(120);
