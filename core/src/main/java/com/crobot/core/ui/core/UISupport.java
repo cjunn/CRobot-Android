@@ -3,14 +3,13 @@ package com.crobot.core.ui.core;
 import android.view.View;
 
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
-public interface UISupport<V extends View> {
+public interface UISupport<V extends View, E> {
     V getView();
 
-    Supplier<UIValue> getValue();
+    E getValue();
 
-    void setValue(Object value);
+    void setValue(E value);
 
     String getId();
 
@@ -18,5 +17,5 @@ public interface UISupport<V extends View> {
 
     void addValueChangeListener(Consumer<UIKeyValue> consumer);
 
-    <K1 extends View> void addChild(UISupport<K1> c);
+    <K1 extends View, E> void addChild(UISupport<K1, E> c);
 }

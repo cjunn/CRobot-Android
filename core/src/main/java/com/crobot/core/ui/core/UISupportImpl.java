@@ -10,16 +10,15 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
-public abstract class UISupportImpl<V extends View> implements UISupport<V> {
+public abstract class UISupportImpl<V extends View, E> implements UISupport<V, E> {
     private final static AtomicInteger cnt = new AtomicInteger(1);
     private final static String ID = "id";
     protected final List<UISupport> children = new ArrayList<>();
     private final String id;
     private V view;
     private Context context;
-    private UIValue value = UIValue.EMPTY;
+    private E value;
     private List<Consumer<UIKeyValue>> valueChangeListeners = new ArrayList<>();
 
     public UISupportImpl(Context context, Map<String, String> attr) {
@@ -41,16 +40,16 @@ public abstract class UISupportImpl<V extends View> implements UISupport<V> {
     }
 
     @Override
-    public Supplier<UIValue> getValue() {
-        return () -> value;
+    public E getValue() {
+        return value;
     }
 
     @Override
-    public void setValue(Object value) {
-        if (Objects.equals(this.value.get(), value)) {
+    public void setValue(E value) {
+        if (Objects.equals(this.value, value)) {
             return;
         }
-        this.value = new UIValue(value);
+        this.value = value;
         setValue(this.view, this.value);
     }
 
@@ -60,7 +59,7 @@ public abstract class UISupportImpl<V extends View> implements UISupport<V> {
     }
 
     @Override
-    public <K1 extends View> void addChild(UISupport<K1> c) {
+    public <K1 extends View, E> void addChild(UISupport<K1, E> c) {
         if (this.isContainer()) {
             this.children.add(c);
         }
@@ -70,12 +69,11 @@ public abstract class UISupportImpl<V extends View> implements UISupport<V> {
 
     protected abstract V initView(Context context);
 
-    protected abstract void setValue(V view, UIValue value);
+    protected abstract void setValue(V view, E value);
 
     protected abstract void setDefaultValue(V view, UIAttribute value);
 
-
-    protected abstract void bindViewValueChange(V v, UIValueSetter setter);
+    protected abstract void bindViewValueChange(V v, UIValueSetter<E> setter);
 
     private void initAttrValue(Map<String, String> attr) {
         Set<Map.Entry<String, String>> entries = attr.entrySet();
@@ -86,7 +84,7 @@ public abstract class UISupportImpl<V extends View> implements UISupport<V> {
 
     private void initValueChangeListener() {
         this.bindViewValueChange(view, value -> {
-            this.value = new UIValue(value);
+            this.value = value;
             for (Consumer<UIKeyValue> listener : valueChangeListeners) {
                 listener.accept(new UIKeyValue(this.getId(), this.value));
             }

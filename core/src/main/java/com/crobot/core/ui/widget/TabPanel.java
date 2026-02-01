@@ -13,7 +13,6 @@ import com.crobot.core.resource.My;
 import com.crobot.core.ui.core.SimpleUISupport;
 import com.crobot.core.ui.core.UIAttribute;
 import com.crobot.core.ui.core.UISupport;
-import com.crobot.core.ui.core.UIValue;
 import com.crobot.core.ui.core.UIValueSetter;
 import com.google.android.material.tabs.TabLayout;
 
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class TabPanel extends SimpleUISupport<LinearLayout> {
+public class TabPanel extends SimpleUISupport<LinearLayout, Integer> {
     private MyTabLayout myTabLayout;
     private MyViewPager myViewPager;
 
@@ -31,7 +30,7 @@ public class TabPanel extends SimpleUISupport<LinearLayout> {
 
 
     @Override
-    public <K1 extends View> void addChild(UISupport<K1> c) {
+    public <K1 extends View, E> void addChild(UISupport<K1, E> c) {
         super.addChild(c);
         if (c instanceof ViewPager) {
             addChild((ViewPager) c);
@@ -59,14 +58,10 @@ public class TabPanel extends SimpleUISupport<LinearLayout> {
         return body;
     }
 
-    private void setValue(LinearLayout view, Integer value) {
+    @Override
+    protected void setValue(LinearLayout view, Integer value) {
         TabLayout.Tab tabAt = this.myTabLayout.getTabAt(value);
         this.myTabLayout.selectTab(tabAt);
-    }
-
-    @Override
-    protected void setValue(LinearLayout view, UIValue value) {
-        this.setValue(view, value.getInt());
     }
 
     @Override

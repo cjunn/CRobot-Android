@@ -13,7 +13,8 @@ public interface UIContext {
 
     void bindViewGroup(Supplier<ViewGroup> supplier);
 
-    UIValue getUIValue(String id);
+    Object getUIValue(String id);
+
     void setUIValue(String id, Object value);
 
     boolean hasUI(String id);

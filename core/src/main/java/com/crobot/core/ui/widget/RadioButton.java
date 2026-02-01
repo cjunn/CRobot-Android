@@ -10,7 +10,7 @@ import com.crobot.core.ui.core.SimpleUISupport;
 
 import java.util.Map;
 
-public class RadioButton extends SimpleUISupport<RadioButton.CompatRadio> {
+public class RadioButton extends SimpleUISupport<RadioButton.CompatRadio, Void> {
     private String key;
 
     public RadioButton(Context context, Map<String, String> attr) {

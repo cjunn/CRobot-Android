@@ -12,12 +12,11 @@ import com.crobot.core.resource.My;
 import com.crobot.core.ui.core.SimpleUISupport;
 import com.crobot.core.ui.core.UIAttribute;
 import com.crobot.core.ui.core.UISupport;
-import com.crobot.core.ui.core.UIValue;
 import com.crobot.core.ui.core.UIValueSetter;
 
 import java.util.Map;
 
-public class SpinnerList extends SimpleUISupport<AppCompatSpinner> {
+public class SpinnerList extends SimpleUISupport<AppCompatSpinner, String> {
     private ArrayAdapter<KeyValue> adapter;
 
     public SpinnerList(Context context, Map<String, String> attr) {
@@ -41,7 +40,8 @@ public class SpinnerList extends SimpleUISupport<AppCompatSpinner> {
         return spinner;
     }
 
-    private void setValue(AppCompatSpinner spinner, String value) {
+    @Override
+    protected void setValue(AppCompatSpinner spinner, String value) {
         int count = adapter.getCount();
         for (int i = 0; i < count; i++) {
             if (value.equals(adapter.getItem(i).getKey())) {
@@ -50,11 +50,6 @@ public class SpinnerList extends SimpleUISupport<AppCompatSpinner> {
                 break;
             }
         }
-    }
-
-    @Override
-    protected void setValue(AppCompatSpinner spinner, UIValue value) {
-        this.setValue(spinner, value.getString());
     }
 
     @Override
@@ -79,7 +74,7 @@ public class SpinnerList extends SimpleUISupport<AppCompatSpinner> {
     }
 
     @Override
-    public <K1 extends View> void addChild(UISupport<K1> c) {
+    public <K1 extends View, E> void addChild(UISupport<K1, E> c) {
         super.addChild(c);
         if (c instanceof SpinnerEntry) {
             addChild((SpinnerEntry) c);

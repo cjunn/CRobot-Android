@@ -12,7 +12,7 @@ import com.crobot.core.ui.core.UISupport;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HorLayout extends SimpleUISupport<LinearLayout> {
+public class HorLayout extends SimpleUISupport<LinearLayout, Void> {
     private final static Map<String, Integer> GravityMap = new HashMap<>();
 
     static {
@@ -34,7 +34,7 @@ public class HorLayout extends SimpleUISupport<LinearLayout> {
 
 
     @Override
-    public <K1 extends View> void addChild(UISupport<K1> c) {
+    public <K1 extends View, E> void addChild(UISupport<K1, E> c) {
         super.addChild(c);
         getView().addView(c.getView());
     }

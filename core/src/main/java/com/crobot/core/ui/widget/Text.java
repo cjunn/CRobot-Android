@@ -8,7 +8,7 @@ import com.crobot.core.ui.core.SimpleUISupport;
 
 import java.util.Map;
 
-public class Text extends SimpleUISupport<AppCompatTextView> {
+public class Text extends SimpleUISupport<AppCompatTextView, Void> {
 
     public Text(Context context, Map<String, String> attr) {
         super(context, attr);

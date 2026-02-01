@@ -176,7 +176,7 @@ public abstract class BackendService extends Service implements RuntimeEvent, Si
                 .addInitiator(new SystemInitiator())
                 .builder();
         this.uiContext.bindViewGroup(() -> this.sideBar.getSettingBody());
-        this.uiContext.bindUIValueListen(vo -> this.project.setUISetting(vo.getId(), vo.getValue().get()));
+        this.uiContext.bindUIValueListen(vo -> this.project.setUISetting(vo.getId(), vo.getValue()));
         this.uiContext.bindUIValueInit(() -> this.project.getAllUISetting());
         this.sideBar.addEvent(this);
     }

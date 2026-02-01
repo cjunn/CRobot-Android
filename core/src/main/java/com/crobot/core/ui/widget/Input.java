@@ -15,14 +15,13 @@ import com.crobot.core.resource.My;
 import com.crobot.core.ui.core.Setter;
 import com.crobot.core.ui.core.SimpleUISupport;
 import com.crobot.core.ui.core.UIAttribute;
-import com.crobot.core.ui.core.UIValue;
 import com.crobot.core.ui.core.UIValueSetter;
 import com.crobot.utils.CLog;
 
 import java.lang.reflect.Field;
 import java.util.Map;
 
-public class Input extends SimpleUISupport<Input.MyEditText> {
+public class Input extends SimpleUISupport<Input.MyEditText, String> {
 
     public Input(Context context, Map<String, String> attr) {
         super(context, attr);
@@ -44,13 +43,9 @@ public class Input extends SimpleUISupport<Input.MyEditText> {
         return new MyEditText(context);
     }
 
-    private void setValue(MyEditText view, String value) {
-        view.setText(value);
-    }
-
     @Override
-    protected void setValue(MyEditText view, UIValue value) {
-        this.setValue(view, value.getString());
+    protected void setValue(MyEditText view, String value) {
+        view.setText(value);
     }
 
     @Override

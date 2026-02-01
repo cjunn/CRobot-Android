@@ -8,13 +8,12 @@ import com.crobot.core.ui.core.Setter;
 import com.crobot.core.ui.core.SimpleUISupport;
 import com.crobot.core.ui.core.UIAttribute;
 import com.crobot.core.ui.core.UISupport;
-import com.crobot.core.ui.core.UIValue;
 import com.crobot.core.ui.core.UIValueSetter;
 
 import java.util.Map;
 import java.util.Objects;
 
-public class RadioGroup extends SimpleUISupport<android.widget.RadioGroup> {
+public class RadioGroup extends SimpleUISupport<android.widget.RadioGroup, String> {
 
 
     public RadioGroup(Context context, Map<String, String> attr) {
@@ -45,7 +44,7 @@ public class RadioGroup extends SimpleUISupport<android.widget.RadioGroup> {
 
 
     @Override
-    public <K1 extends View> void addChild(UISupport<K1> c) {
+    public <K1 extends View, E> void addChild(UISupport<K1, E> c) {
         super.addChild(c);
         if (c instanceof RadioButton) {
             addChild((RadioButton) c);
@@ -68,16 +67,12 @@ public class RadioGroup extends SimpleUISupport<android.widget.RadioGroup> {
         return new android.widget.RadioGroup(context);
     }
 
-    private void setValue(android.widget.RadioGroup view, String value) {
+    @Override
+    protected void setValue(android.widget.RadioGroup view, String value) {
         RadioButton.CompatRadio radio = getRadio(view, value);
         if (radio != null) {
             this.getView().check(radio.getId());
         }
-    }
-
-    @Override
-    protected void setValue(android.widget.RadioGroup view, UIValue value) {
-        this.setValue(view, value.getString());
     }
 
     @Override

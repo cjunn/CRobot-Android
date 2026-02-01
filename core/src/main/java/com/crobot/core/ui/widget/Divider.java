@@ -10,7 +10,7 @@ import com.crobot.core.ui.core.SimpleUISupport;
 
 import java.util.Map;
 
-public class Divider extends SimpleUISupport<Divider.DividerView> {
+public class Divider extends SimpleUISupport<Divider.DividerView, Void> {
     public Divider(Context context, Map<String, String> attr) {
         super(context, attr);
     }

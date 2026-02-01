@@ -9,7 +9,7 @@ import com.crobot.core.ui.core.UISupport;
 
 import java.util.Map;
 
-public class Setting extends SimpleUISupport<LinearLayout> {
+public class Setting extends SimpleUISupport<LinearLayout, Void> {
     public Setting(Context context, Map<String, String> attr) {
         super(context, attr);
     }
@@ -27,7 +27,7 @@ public class Setting extends SimpleUISupport<LinearLayout> {
     }
 
     @Override
-    public <K1 extends View> void addChild(UISupport<K1> c) {
+    public <K1 extends View, E> void addChild(UISupport<K1, E> c) {
         super.addChild(c);
         getView().addView(c.getView());
     }

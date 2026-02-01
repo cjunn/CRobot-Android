@@ -8,7 +8,7 @@ import com.crobot.core.ui.core.SimpleUISupport;
 
 import java.util.Map;
 
-public class SpinnerEntry extends SimpleUISupport<View> {
+public class SpinnerEntry extends SimpleUISupport<View, Void> {
 
     private Runnable observer;
     private String key;

@@ -11,7 +11,7 @@ import com.crobot.core.ui.core.UISupport;
 
 import java.util.Map;
 
-public class ViewPager extends SimpleUISupport<ScrollView> {
+public class ViewPager extends SimpleUISupport<ScrollView, Void> {
     private LinearLayout linearLayout;
     private String title;
     private Runnable observer;
@@ -38,7 +38,7 @@ public class ViewPager extends SimpleUISupport<ScrollView> {
     }
 
     @Override
-    public <K1 extends View> void addChild(UISupport<K1> c) {
+    public <K1 extends View, E> void addChild(UISupport<K1, E> c) {
         super.addChild(c);
         this.linearLayout.addView(c.getView());
     }

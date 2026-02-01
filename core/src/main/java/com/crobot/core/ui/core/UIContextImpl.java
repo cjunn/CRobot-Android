@@ -24,8 +24,8 @@ public class UIContextImpl implements UIContext {
     private final List<Consumer<UIKeyValue>> valueListen = new ArrayList<>();
     private final Handler main = new Handler(Looper.getMainLooper());
     private final Context context;
-    private final Map<String,UISupport> uiMap = new ConcurrentHashMap<>();
-    private final Map<String, UIValue> valueMap = new ConcurrentHashMap<>();
+    private final Map<String, UISupport> uiMap = new ConcurrentHashMap<>();
+    private final Map<String, Object> valueMap = new ConcurrentHashMap<>();
     private Supplier<Map<String, Object>> initSupplier;
 
     public UIContextImpl(Context context) {
@@ -48,16 +48,16 @@ public class UIContextImpl implements UIContext {
     }
 
     @Override
-    public UIValue getUIValue(String id) {
-        return valueMap.getOrDefault(id, UIValue.EMPTY);
+    public Object getUIValue(String id) {
+        return valueMap.get(id);
     }
 
     @Override
     public void setUIValue(String id, Object value) {
         Latch latch = new Latch(1);
-        main.post(()->{
+        main.post(() -> {
             UISupport uiSupport = uiMap.get(id);
-            if(uiSupport!=null){
+            if (uiSupport != null) {
                 uiSupport.setValue(value);
             }
             latch.countDown();
@@ -86,8 +86,8 @@ public class UIContextImpl implements UIContext {
             Object initVal = initValMap.get(ui.getId());
             if (initVal != null) {
                 ui.setValue(initVal);
+                this.valueMap.put(ui.getId(), initVal);
             }
-            this.valueMap.put(ui.getId(), new UIValue(initVal));
         }
     }
 
@@ -96,12 +96,12 @@ public class UIContextImpl implements UIContext {
         for (UISupport ui : allFlat) {
             ui.addValueChangeListener((Consumer<UIKeyValue>) uiProp -> {
                 String id = uiProp.getId();
-                UIValue value = uiProp.getValue();
+                Object value = uiProp.getValue();
                 List<UISupport> supports = supportMap.getOrDefault(id, Collections.emptyList());
                 for (UISupport support : supports) {
-                    support.setValue(value.get());
+                    support.setValue(value);
                 }
-                UIValue oldUIValue = this.valueMap.get(uiProp.getId());
+                Object oldUIValue = this.valueMap.get(uiProp.getId());
                 if (!value.equals(oldUIValue)) {
                     this.valueMap.put(uiProp.getId(), value);
                     for (Consumer<UIKeyValue> listen : valueListen) {

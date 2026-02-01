@@ -8,7 +8,7 @@ import com.crobot.core.ui.core.SimpleUISupport;
 
 import java.util.Map;
 
-public class Button extends SimpleUISupport<AppCompatButton> {
+public class Button extends SimpleUISupport<AppCompatButton, Void> {
 
 
     public Button(Context context, Map<String, String> attr) {

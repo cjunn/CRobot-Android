@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import java.util.Map;
 
-public abstract class SimpleUISupport<V extends View> extends UISupportImpl<V> {
+public abstract class SimpleUISupport<V extends View, E> extends UISupportImpl<V, E> {
     public SimpleUISupport(Context context, Map<String, String> attr) {
         super(context, attr);
     }
@@ -85,7 +85,7 @@ public abstract class SimpleUISupport<V extends View> extends UISupportImpl<V> {
     protected abstract V initView(Context context);
 
     @Override
-    protected void setValue(V view, UIValue value) {
+    protected void setValue(V view, E value) {
 
     }
 
@@ -94,7 +94,7 @@ public abstract class SimpleUISupport<V extends View> extends UISupportImpl<V> {
     }
 
     @Override
-    protected void bindViewValueChange(V v, UIValueSetter setter) {
+    protected void bindViewValueChange(V v, UIValueSetter<E> setter) {
 
     }
 }

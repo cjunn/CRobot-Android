@@ -21,7 +21,7 @@ public class UIInitiator implements Initiator {
     private class UIApt extends ObjApt {
         @Caller("getValue")
         public Object getValue(String id) {
-            return uiContext.getUIValue(id).get();
+            return uiContext.getUIValue(id);
         }
 
         @Caller("setValue")
