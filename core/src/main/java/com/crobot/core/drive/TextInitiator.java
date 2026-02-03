@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 public class TextInitiator implements Initiator {
     @Override
     public void execute(ContextProxy context) {
-        context.setObjApt("Text", new TextApt());
+        context.setObjApt("Textual", new TextApt());
     }
 
     public static class TextApt extends ObjApt {

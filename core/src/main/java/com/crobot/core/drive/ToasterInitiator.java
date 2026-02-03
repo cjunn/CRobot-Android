@@ -3,8 +3,11 @@ package com.crobot.core.drive;
 import com.crobot.core.infra.tool.Toaster;
 import com.crobot.runtime.engine.ContextProxy;
 import com.crobot.runtime.engine.Initiator;
+import com.crobot.runtime.engine.Varargs;
+import com.crobot.runtime.engine.apt.FuncApt;
 import com.crobot.runtime.engine.apt.ObjApt;
 import com.crobot.runtime.engine.apt.anno.Caller;
+import com.crobot.runtime.engine.apt.anno.Execute;
 
 public class ToasterInitiator implements Initiator {
     private Toaster toaster;
@@ -15,8 +18,8 @@ public class ToasterInitiator implements Initiator {
 
     @Override
     public void execute(ContextProxy context) {
-        context.setObjApt("Toaster", new ObjApt() {
-            @Caller("show")
+        context.setFuncApt("toast", new FuncApt() {
+            @Execute
             public void show(String message) {
                 toaster.show(message);
             }
