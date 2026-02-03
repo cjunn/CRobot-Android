@@ -11,14 +11,6 @@ public class FileOperationFactoryImpl implements FileOperationFactory {
         this.context = context;
     }
 
-    public FileOperation getFilesDir() {
-        return new FileOperationImpl(context.getFilesDir().getAbsolutePath());
-    }
-
-    public FileOperation getCacheDir() {
-        return new FileOperationImpl(context.getCacheDir().getAbsolutePath());
-    }
-
     public FileOperation getModule(String root) {
         File dir = new File(context.getDataDir(), root);
         if(!dir.exists()){

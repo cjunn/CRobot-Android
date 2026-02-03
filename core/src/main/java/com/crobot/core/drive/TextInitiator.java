@@ -16,12 +16,12 @@ public class TextInitiator implements Initiator {
 
     public static class TextApt extends ObjApt {
         @Caller("encode")
-        public String encode(byte[] data, String charsetName) throws NoSuchAlgorithmException {
+        public String encode(byte[] data, String charsetName) {
             return new String(data, Charset.forName(charsetName));
         }
 
         @Caller("decode")
-        public byte[] decode(String data, String charsetName) throws NoSuchAlgorithmException {
+        public byte[] decode(String data, String charsetName) {
             return data.getBytes(Charset.forName(charsetName));
         }
     }

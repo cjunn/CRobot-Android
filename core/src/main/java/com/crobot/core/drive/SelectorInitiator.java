@@ -21,7 +21,7 @@ public class SelectorInitiator implements Initiator {
 
     @Override
     public void execute(ContextProxy context) {
-        context.setFuncApt("selector", new FuncApt() {
+        context.setFuncApt("createSelector", new FuncApt() {
             @Execute
             public SelectorBuildApt execute() {
                 return new SelectorBuildApt();

@@ -16,9 +16,9 @@ import com.crobot.core.drive.AttachInitiator;
 import com.crobot.core.drive.Base64Initiator;
 import com.crobot.core.drive.CanvasInitiator;
 import com.crobot.core.drive.ConfigInitiator;
-import com.crobot.core.drive.CryptoInitiator;
 import com.crobot.core.drive.DeviceInitiator;
 import com.crobot.core.drive.DialogInitiator;
+import com.crobot.core.drive.DigestInitiator;
 import com.crobot.core.drive.DisplayInitiator;
 import com.crobot.core.drive.FileSystemInitiator;
 import com.crobot.core.drive.GalleryInitiator;
@@ -164,7 +164,7 @@ public abstract class BackendService extends Service implements RuntimeEvent, Si
                 .addInitiator(new DeviceInitiator(new DeviceImpl(this)))
                 .addInitiator(new DialogInitiator(new DialogImpl(this)))
                 .addInitiator(new GalleryInitiator(new GalleryImpl(this)))
-                .addInitiator(new CryptoInitiator())
+                .addInitiator(new DigestInitiator())
                 .addInitiator(new TextInitiator())
                 .addInitiator(new OcrLiteInitiator())
                 .addInitiator(new YoloV8Initiator())

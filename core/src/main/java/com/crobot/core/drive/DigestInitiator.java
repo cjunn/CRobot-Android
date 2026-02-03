@@ -15,13 +15,13 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class CryptoInitiator implements Initiator {
+public class DigestInitiator implements Initiator {
     @Override
     public void execute(ContextProxy context) {
-        context.setObjApt("Crypto", new CryptoApt());
+        context.setObjApt("Digest", new DigestApt());
     }
 
-    public static class CryptoApt extends ObjApt {
+    public static class DigestApt extends ObjApt {
 
         /**
          * 计算消息摘要
