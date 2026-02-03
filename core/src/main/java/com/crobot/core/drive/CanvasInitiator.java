@@ -11,8 +11,10 @@ import com.crobot.runtime.engine.Context;
 import com.crobot.runtime.engine.ContextProxy;
 import com.crobot.runtime.engine.Initiator;
 import com.crobot.runtime.engine.Varargs;
+import com.crobot.runtime.engine.apt.FuncApt;
 import com.crobot.runtime.engine.apt.ObjApt;
 import com.crobot.runtime.engine.apt.anno.Caller;
+import com.crobot.runtime.engine.apt.anno.Execute;
 
 public class CanvasInitiator implements Initiator {
     private DisplayCanvas displayCanvas;
@@ -26,9 +28,9 @@ public class CanvasInitiator implements Initiator {
 
     @Override
     public void execute(ContextProxy context) {
-        context.setObjApt("Canvas", new ObjApt() {
-            @Caller("create")
-            public DisplayBitmapApt create(Varargs varargs) {
+        context.setFuncApt("createCanvas", new FuncApt() {
+            @Execute
+            public DisplayBitmapApt execute(Varargs varargs) {
                 Number w = varargs.getValue(0, Number.class, () -> screenMetrics.getWidth());
                 Number h = varargs.getValue(1, Number.class, () -> screenMetrics.getHeight());
                 return new DisplayBitmapApt(displayCanvas.newCanvas(w.intValue(), h.intValue()));

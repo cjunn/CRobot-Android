@@ -3,6 +3,7 @@ package com.crobot.core.drive;
 import com.crobot.core.infra.tool.App;
 import com.crobot.runtime.engine.ContextProxy;
 import com.crobot.runtime.engine.Initiator;
+import com.crobot.runtime.engine.JsonBean;
 import com.crobot.runtime.engine.apt.ObjApt;
 import com.crobot.runtime.engine.apt.anno.Caller;
 import com.crobot.runtime.engine.apt.anno.Value;
@@ -76,8 +77,8 @@ public class AppInitiator implements Initiator {
         }
 
         @Caller("getInstalledApps")
-        public void getInstalledApps() {
-            app.getInstalledApps();
+        public JsonBean getInstalledApps() {
+            return JsonBean.create(app.getInstalledApps());
         }
 
     }

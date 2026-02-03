@@ -1,5 +1,7 @@
 package com.crobot.core.infra.tool;
 
+import java.util.List;
+
 public interface App {
     String archite();
 
@@ -15,6 +17,6 @@ public interface App {
 
     boolean openUrl(String url);
 
-    void getInstalledApps();
+    List<String> getInstalledApps();
 
 }

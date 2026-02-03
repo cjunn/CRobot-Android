@@ -15,9 +15,8 @@ import com.crobot.core.infra.AccessibilityComponent;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class AppImpl implements App {
     private Context context;
@@ -139,19 +138,18 @@ public class AppImpl implements App {
     }
 
     @Override
-    public void getInstalledApps() {
-        List<Map<String, String>> apps = new ArrayList<>();
+    public List<String> getInstalledApps() {
+        List<String> apps = new ArrayList<>();
         try {
             PackageManager pm = context.getPackageManager();
             List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
             for (ApplicationInfo packageInfo : packages) {
-                Map<String, String> appInfo = new HashMap<>();
-                appInfo.put("packageName", packageInfo.packageName);
-                appInfo.put("name", pm.getApplicationLabel(packageInfo).toString());
-                apps.add(appInfo);
+                apps.add(packageInfo.packageName);
             }
+            return apps;
         } catch (Exception e) {
             // Return empty list on error
+            return Collections.emptyList();
         }
     }
 
